@@ -13,7 +13,11 @@ def order(values: list = None) -> list:
 def anagrams(words: list = None) -> bool:
     if words is None:
         # TODO: demander les mots ici
-        pass
+        chaine1 = input('mot1: ')
+        chaine2 = input('mot2: ')
+        if sorted(chaine1.split()) == sorted(chaine2.split()):
+            return True
+
 
     return False
 
