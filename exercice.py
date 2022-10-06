@@ -66,6 +66,7 @@ def get_recipes() -> dict:
 
 def print_recipe(ingredients) -> None:
     # TODO: Demander le nom d'une recette, puis l'afficher si elle existe
+
     pass
 
 
