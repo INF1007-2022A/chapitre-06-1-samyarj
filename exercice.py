@@ -5,30 +5,34 @@
 def order(values: list = None) -> list:
     if values is None:
         # TODO: demander les valeurs ici
-        pass
+        values = [input('enter value:') for i in range(10)]
 
-    return []
-
-
-def anagrams(words: list = None) -> bool:
-    if words is None:
-        # TODO: demander les mots ici
-        chaine1 = input('mot1: ')
-        chaine2 = input('mot2: ')
-        if sorted(chaine1.split()) == sorted(chaine2.split()):
-            return True
+    return sorted(values)
 
 
-    return False
+def anagrams(word1, word2) -> bool:
+    list1 = [letter for letter in word1].sort()
+    list2 = [letter for letter in word2].sort()
+    if list1 == list2:
+        return True
+    else:
+        return False
 
 
 def contains_doubles(items: list) -> bool:
-    return False
+    set1 = {item for item in items}
+    list1 = [item for item in items]
+    if len(set1) == len(list1):
+        return False  # same items in set1, list1
+    return True
 
 
 def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
-    return {}
+    avg = [[sum(student_grades[student])/len(student_grades[student])] for student in student_grades]
+    best = avg.index(max(avg))
+    if best != 0:
+        return best_grades.pop()
 
 
 def frequence(sentence: str) -> dict:
@@ -50,10 +54,10 @@ def print_recipe(ingredients) -> None:
 
 def main() -> None:
     print(f"On essaie d'ordonner les valeurs...")
-    order()
+    #print(order())
 
     print(f"On vérifie les anagrammes...")
-    anagrams()
+    print(anagrams('ALEVIN', 'NIVELA'))
 
     my_list = [3, 3, 5, 6, 1, 1]
     print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
