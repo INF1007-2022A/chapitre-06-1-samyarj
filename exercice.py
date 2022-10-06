@@ -54,9 +54,14 @@ def frequence(sentence: str) -> dict:
     return new_dict
 
 
-def get_recipes():
+def get_recipes() -> dict:
     # TODO: Demander le nom d'une recette, puis ses ingredients et enregistrer dans une structure de données
-    pass
+    recipe_dict = dict()  # return variable
+    name_key = input('Enter name of recipe: ')
+    ingredients_values = input('Enter ingredients: ')
+    recipe_dict[name_key] = ingredients_values.split(', ')
+
+    return recipe_dict
 
 
 def print_recipe(ingredients) -> None:
