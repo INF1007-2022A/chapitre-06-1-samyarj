@@ -31,8 +31,8 @@ def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
     avg = [[sum(student_grades[student])/len(student_grades[student])] for student in student_grades]
     best = avg.index(max(avg))
-    if best != 0:
-        return best_grades.pop()
+    list1 = [[student] for student in student_grades]
+    return list1[best]
 
 
 def frequence(sentence: str) -> dict:
