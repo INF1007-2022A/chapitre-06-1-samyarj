@@ -29,17 +29,29 @@ def contains_doubles(items: list) -> bool:
 
 def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
-    avg = [[sum(student_grades[student])/len(student_grades[student])] for student in student_grades]
+    '''avg = [[sum(student_grades[student])/len(student_grades[student])] for student in student_grades]
     best = avg.index(max(avg))
     list1 = [[student] for student in student_grades]
-    return list1[best]
+    return list1[best]'''
+    pass
 
 
 def frequence(sentence: str) -> dict:
     # TODO: Afficher les lettres les plus fréquentes
     #       Retourner le tableau de lettres
-
-    return {}
+    list_of_letters = [letter for letter in sentence if ord(letter.lower()) in range(97, 123)]
+    dict = {}
+    for letter in list_of_letters:
+        p = 0  # value
+        for other_letter in list_of_letters:
+            if letter == other_letter:
+                p += 1
+        dict[letter] = p
+    new_dict = {}
+    for key in dict:
+        if dict[key] > 5:
+            new_dict[key] = dict[key]
+    return new_dict
 
 
 def get_recipes():
@@ -64,10 +76,10 @@ def main() -> None:
 
     grades = {"Bob": [90, 65, 20], "Alice": [85, 75, 83]}
     best_student = best_grades(grades)
-    print(f"{list(best_student.keys())[0]} a la meilleure moyenne: {list(best_student.values())[0]}")
+    #print(f"{list(best_student.keys())[0]} a la meilleure moyenne: {list(best_student.values())[0]}")
 
     sentence = "bonjour, je suis une phrase. je suis compose de beaucoup de lettre. oui oui"
-    frequence(sentence)
+    print(frequence(sentence))
 
     print("On enregistre les recettes...")
     recipes = get_recipes()
